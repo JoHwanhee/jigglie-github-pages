@@ -42,16 +42,29 @@
 
 <div class="script-container">
     <code>
-        &lt;script src="https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js"<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;domain="yourdomain.com"&gt;&lt;/script&gt;
+        &lt;div id="jiggle_comment_section"&gt;&lt;/div&gt;<br>
+        &lt;script&gt;<br>
+        &nbsp;&nbsp;// 전역 설정 변수 정의<br>
+        &nbsp;&nbsp;window.jiggleConfig = {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;domain: 'yourdomain.com' // 자신의 도메인으로 변경하세요.<br>
+        &nbsp;&nbsp;};<br><br>
+        &nbsp;&nbsp;(function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var d = document, s = d.createElement('script');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;s.async = true;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;s.setAttribute('data-timestamp', +new Date());<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;(d.head || d.body).appendChild(s);<br>
+        &nbsp;&nbsp;})();<br>
+        &lt;/script&gt;
     </code>
 </div>
 
 <h2>Jiggle 시작하기</h2>
 <ol>
     <li>위의 스크립트를 복사합니다.</li>
-    <li>자신의 웹사이트 <code>&lt;body&gt;</code> 태그 안에 붙여넣습니다.</li>
-    <li><code>domain</code> 속성에 자신의 도메인을 입력합니다 (예: <code>mywebsite.com</code>).</li>
+    <li>자신의 웹사이트 원하는 위치에 `&lt;div id=&quot;jiggle_comment_section&quot; /&gt;` 를 추가합니다. 이 위치에 댓글이 표시됩니다.</li>
+    <li>스크립트를 `<body>` 태그 안에 붙여넣습니다.</li>
+    <li>`domain` 속성에 자신의 도메인을 입력합니다 (예: `mywebsite.com`).</li>
     <li>페이지를 저장하고, 브라우저에서 새로 고침하여 Jiggle 댓글 서비스가 제대로 작동하는지 확인하세요.</li>
 </ol>
 
@@ -68,16 +81,29 @@
         &nbsp;&nbsp;&lt;title&gt;Jiggle - 내 웹사이트에 댓글 추가&lt;/title&gt;<br>
         &lt;/head&gt;<br>
         &lt;body&gt;<br>
-        &nbsp;&nbsp;&lt;script src="https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js"<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;domain="yourdomain.com"&gt;&lt;/script&gt;<br>
+        &nbsp;&nbsp;&lt;div id="jiggle_comment_section"&gt;&lt;/div&gt;<br>
+        &nbsp;&nbsp;&lt;script&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;// 전역 설정 변수 정의<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;window.jiggleConfig = {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain: 'yourdomain.com' // 자신의 도메인으로 변경하세요.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;(function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var d = document, s = d.createElement('script');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.async = true;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.setAttribute('data-timestamp', +new Date());<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d.head || d.body).appendChild(s);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;})();<br>
+        &nbsp;&nbsp;&lt;/script&gt;<br>
         &lt;/body&gt;<br>
         &lt;/html&gt;
     </code>
 </div>
 
-
 <h2>예시 기능</h2>
 
+<!-- 댓글이 표시될 위치 -->
+<div id="jiggle_comment_section"></div>
 
 <script>
     // 전역 설정 변수 정의
