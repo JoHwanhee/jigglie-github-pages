@@ -11,14 +11,17 @@
             margin: 0;
             padding: 20px;
         }
+
         h1 {
             color: #333;
         }
+
         code {
             background-color: #f4f4f4;
             padding: 4px 8px;
             font-size: 1.1em;
         }
+
         .script-container {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
@@ -33,7 +36,8 @@
     Jiggle은 웹사이트에 쉽게 통합할 수 있는 댓글 서비스입니다. Jiggle을 사용하면, 여러분의 웹페이지에 방문자가 자유롭게 댓글을 남길 수 있습니다.
 </p>
 <p>
-    사용자는 아래와 같이 간단한 스크립트를 추가하여 Jiggle 서비스를 자신의 웹사이트에 추가할 수 있습니다. 스크립트에서 <code>domain</code> 속성에는 <strong>자신의 도메인 이름</strong>을 입력해야 합니다.
+    사용자는 아래와 같이 간단한 스크립트를 추가하여 Jiggle 서비스를 자신의 웹사이트에 추가할 수 있습니다. 스크립트에서 <code>domain</code> 속성에는 <strong>자신의 도메인
+    이름</strong>을 입력해야 합니다.
 </p>
 
 <div class="script-container">
@@ -73,9 +77,22 @@
 
 
 <h2>예시 기능</h2>
-<script src="https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js"
-        domain="johwanhee.github.io"
-/>
+
+
+<script>
+    // 전역 설정 변수 정의
+    window.jiggleConfig = {
+        domain: 'johwanhee.github.io' // 자신의 도메인으로 변경하세요.
+    };
+
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';
+        s.async = true; // 스크립트를 비동기로 로드
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
 
 <footer>
     <p>&copy; 2024 Jiggle. 모든 권리 보유.</p>
