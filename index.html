@@ -36,15 +36,14 @@
     Jiggle은 웹사이트에 쉽게 통합할 수 있는 댓글 서비스입니다. Jiggle을 사용하면, 여러분의 웹페이지에 방문자가 자유롭게 댓글을 남길 수 있습니다.
 </p>
 <p>
-    사용자는 아래와 같이 간단한 스크립트를 추가하여 Jiggle 서비스를 자신의 웹사이트에 추가할 수 있습니다. 스크립트에서 <code>domain</code> 속성에는 <strong>자신의 도메인
-    이름</strong>을 입력해야 합니다.
+    간단한 스크립트를 추가하여 Jiggle 서비스를 자신의 웹사이트에 추가할 수 있습니다. <code>domain</code> 속성에는 미리 부여받은 <strong>자신의 도메인 이름</strong>을 입력해야 합니다.
 </p>
 
 <h2>Jiggle 시작하기</h2>
 <ol>
     <li>위의 스크립트를 복사합니다.</li>
     <li>자신의 웹사이트 원하는 위치에 `&lt;div id=&quot;jiggle_comment_section&quot; /&gt;` 를 추가합니다. 이 위치에 댓글이 표시됩니다.</li>
-    <li>스크립트를 `<body>` 태그 안에 붙여넣습니다.</li>
+    <li>스크립트를 `&lt;body&gt;` 태그 안에 붙여넣습니다.</li>
     <li>`domain` 속성에 자신의 도메인을 입력합니다 (예: `mywebsite.com`).</li>
     <li>페이지를 저장하고, 브라우저에서 새로 고침하여 Jiggle 댓글 서비스가 제대로 작동하는지 확인하세요.</li>
 </ol>
@@ -52,23 +51,34 @@
 <p>Jiggle이 올바르게 설치되면 방문자들은 댓글을 남길 수 있는 인터페이스를 보게 됩니다.</p>
 
 <h2>예시 코드</h2>
-```javascript
-<script>
-    // 전역 설정 변수 정의
-    window.jiggleConfig = {
-        domain: 'yourdomain.com' // 자신의 도메인으로 변경하세요.
-    };
-
-    (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';
-        s.async = true;
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-```
-
+<div class="script-container">
+    <code>
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang="ko"&gt;<br>
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+        &nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+        &nbsp;&nbsp;&lt;title&gt;Jiggle - 내 웹사이트에 댓글 추가&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+        &nbsp;&nbsp;&lt;div id="jiggle_comment_section"&gt;&lt;/div&gt;<br>
+        &nbsp;&nbsp;&lt;script&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;// 전역 설정 변수 정의<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;window.jiggleConfig = {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain: 'yourdomain.com' // 자신의 도메인으로 변경하세요.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;};<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;(function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var d = document, s = d.createElement('script');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.async = true;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.setAttribute('data-timestamp', +new Date());<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d.head || d.body).appendChild(s);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;})();<br>
+        &nbsp;&nbsp;&lt;/script&gt;<br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;
+    </code>
+</div>
 
 <h2>예시 기능</h2>
 
@@ -84,7 +94,7 @@
     (function() {
         var d = document, s = d.createElement('script');
         s.src = 'https://3o7kob0fb5.execute-api.ap-northeast-2.amazonaws.com/prod/embed.js';
-        s.async = true;
+        s.async = true; // 스크립트를 비동기로 로드
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
