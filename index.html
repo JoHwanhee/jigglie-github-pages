@@ -95,20 +95,20 @@
 
 <div id="jiggle_comment_section"></div>
 
-<script>
-    // 전역 설정 변수 정의
+  <script>
     window.jiggleConfig = {
-        domain: 'johwanhee.github.io' // 자신의 도메인으로 변경하세요.
+      domain: 'johwanhee.github.io',
+      userId: '116624946798959741059',
     };
-
     (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://cdn.jiggleus.com/embed-0.2.js';
-        s.async = true; // 스크립트를 비동기로 로드
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cdn.jiggleus.com/embed-0.1.js';
+      s.async = true;
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
     })();
-</script>
+  </script>
+
 
 <footer>
     <p>&copy; 2024 Jiggle. 모든 권리 보유.</p>
